@@ -1,0 +1,50 @@
+<head>
+  <title>app</title>
+</head>
+
+<body>
+  {{> drink}}
+  {{> stats}}
+  {{> personal}}
+  {{> navigation}}
+</body>
+
+<template name = "stats">
+
+</template>
+
+<tempalte name = "personal">
+
+</tempalte>
+
+
+
+
+
+
+
+<template name="drink">
+  {{greeting}}
+  <div>
+  	<input id = "Berkeley" type = "button" value = "Drink for Berkeley!" />
+    <input id = "Stanford" type = "button" value = "Drink for Stanford!" />
+  </div>
+  <div>
+    {{#each colleges}}
+    {{ > score}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="navigation">
+	<p>
+		<button type = "button">Home</button>
+		<button type = "button">Stats</button>
+		<button type = "button">Personal</button>
+	</p>
+</template>	
+
+<template name="score"> 
+  <span>{{donation}}</span>
+
+</template>
