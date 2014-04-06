@@ -2,25 +2,30 @@
   <title>app</title>
 </head>
 
-<body>
-  {{> drink}}
-  {{> stats}}
-  {{> personal}}
+<body> 
   {{> navigation}}
+  {{> loginButtons}}
+  {{#if currentUser}}
+          {{#each currentUser.emails}}
+              {{ address }}
+          {{/each}}
+           You are now logged in.
+          }
+          }
+  {{/if}}
 </body>
 
 <template name = "stats">
-
+<h1>Cal vs. Stanford</h1>
+  <div>
+    {{#each colleges}}
+    {{ > score}}
+    {{/each}}
+  </div>
 </template>
 
-<tempalte name = "personal">
-
-</tempalte>
-
-
-
-
-
+<template name = "personal">
+</template>
 
 
 <template name="drink">
@@ -29,22 +34,22 @@
   	<input id = "Berkeley" type = "button" value = "Drink for Berkeley!" />
     <input id = "Stanford" type = "button" value = "Drink for Stanford!" />
   </div>
-  <div>
-    {{#each colleges}}
-    {{ > score}}
-    {{/each}}
-  </div>
 </template>
 
 <template name="navigation">
 	<p>
+    <a href = "{{pathFor 'drink'}}">
 		<button type = "button">Home</button>
-		<button type = "button">Stats</button>
-		<button type = "button">Personal</button>
-	</p>
+    </a>
+    <a href = "{{pathFor 'stats'}}">
+    <button type = "button">Stats</button>
+    </a>
+    <a href = "{{pathFor 'personal'}}">
+  <button type = "button">Personal</button>
+  </a>
+</p>
 </template>	
 
 <template name="score"> 
   <span>{{donation}}</span>
-
 </template>
